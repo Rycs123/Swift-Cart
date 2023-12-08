@@ -28,3 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/product', \App\Http\Livewire\Product\Index::class)
+    ->name('admin.product')
+    ->middleware('auth');
