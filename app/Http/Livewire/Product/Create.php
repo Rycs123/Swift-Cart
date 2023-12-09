@@ -14,6 +14,7 @@ class Create extends Component
     public $description;
     public $price;
     public $image;
+
     public function render()
     {
         return view('livewire.product.create');
@@ -21,18 +22,31 @@ class Create extends Component
 
     public function store()
     {
+
         $this->validate([
             'title' => 'required|min:3',
             'description' => 'required|max:180',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024'
         ]);
-        Product::create(
-            [
-                'title' => $this->title,
-                'description' => $this->description,
-                'price' => $this->price,
-            ]
-        );
+
+        $imageName = '';
+
+        if ($this->image) {
+            $imageName = \Str::slug($this->title, '-')
+                . '-'
+                . uniqid()
+                . '.' . $this->image->getClientOriginalExtension();
+
+            $this->image->storeAs('public', $imageName, 'local');
+        }
+
+        Product::create([
+            'title' => $this->title,
+            'price' => $this->price,
+            'description' => $this->description,
+            'image' => $imageName,
+        ]);
 
         $this->emit('productStored');
     }
