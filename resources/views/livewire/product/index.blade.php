@@ -29,7 +29,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ __('You are logged in!') }}
+                    {{ $products->links() }}
                 </div>
             </div>
         </div>
