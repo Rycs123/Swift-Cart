@@ -16,8 +16,8 @@ class Index extends Component
     public $formUpdate = false;
     protected $listeners = [
         'formClose' => 'formCloseHandler',
-        'productStored' => 'productStoredHandler'
-
+        'productStored' => 'productStoredHandler',
+        'productUpdated' => 'productUpdatedHandler'
     ];
     protected $updatesQueryString = [
         // ['search' => ['except' => '']]
@@ -53,5 +53,13 @@ class Index extends Component
     {
         $this->formUpdate = true;
         $this->formVisible = true;
+        $product = Product::find($productId);
+        $this->emit('editProduct', $product);
+    }
+
+    public function productUpdatedHandler()
+    {
+        $this->formVisible = false;
+        session()->flash('message', 'Your product was updated');
     }
 }

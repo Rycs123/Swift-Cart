@@ -61,7 +61,7 @@
                                     @if ($image)
                                         <img src="{{ $image->temporaryUrl() }}" alt="" height="200">
                                         @else
-                                        <img src="{{ imageOld }}" alt="" height="200">
+                                        <img src="{{ $imageOld }}" alt="" height="200">
                                     @endif
                                 </div>
                             </div>
