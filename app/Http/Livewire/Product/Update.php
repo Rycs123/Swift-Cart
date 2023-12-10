@@ -10,6 +10,7 @@ use Livewire\WithFileUploads;
 class Update extends Component
 {
     use WithFileUploads;
+
     public $productId;
     public $title;
     public $description;
@@ -17,10 +18,10 @@ class Update extends Component
     public $image;
     public $imageOld;
 
-
     protected $listeners = [
         'editProduct' => 'editProductHandler'
     ];
+
     public function render()
     {
         return view('livewire.product.update');
@@ -32,7 +33,7 @@ class Update extends Component
         $this->title = $product['title'];
         $this->description = $product['description'];
         $this->price = $product['price'];
-        $this->imageOld = asset('/storage/', $product['image']);
+        $this->imageOld = asset('/storage/' . $product['image']);
     }
 
     public function updateForm()
@@ -41,16 +42,17 @@ class Update extends Component
             'title' => 'required|min:3',
             'description' => 'required|max:180',
             'price' => 'required|numeric',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024|nullable'
+            'image' => 'image|max:1024'
         ]);
 
-        if ($this->image) {
+        if ($this->productId) {
             $product = Product::find($this->productId);
+
+            $image = '';
 
             if ($this->image) {
                 Storage::disk('public')->delete($product->image);
 
-                $image = '';
                 $imageName = \Str::slug($this->title, '-')
                     . '-'
                     . uniqid()
@@ -67,7 +69,7 @@ class Update extends Component
                 'title' => $this->title,
                 'price' => $this->price,
                 'description' => $this->description,
-                'image' => $image,
+                'image' => $image
             ]);
 
             $this->emit('productUpdated');
