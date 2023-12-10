@@ -35,7 +35,7 @@ class Update extends Component
         $this->imageOld = asset('/storage/', $product['image']);
     }
 
-    public function update()
+    public function updateForm()
     {
         $this->validate([
             'title' => 'required|min:3',
