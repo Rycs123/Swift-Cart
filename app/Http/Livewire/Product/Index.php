@@ -13,7 +13,7 @@ class Index extends Component
     public $paginate = 10;
     public $search;
     public $formVisible;
-
+    public $formUpdate = false;
     protected $listeners = [
         'formClose' => 'formCloseHandler',
         'productStored' => 'productStoredHandler'
@@ -47,5 +47,11 @@ class Index extends Component
     {
         $this->formVisible = false;
         session()->flash('message', 'Your product was stored');
+    }
+
+    public function editProduct($productId)
+    {
+        $this->formUpdate = true;
+        $this->formVisible = true;
     }
 }

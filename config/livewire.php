@@ -74,6 +74,11 @@ return [
         'rules' => 'file|mimes:png,jpg,pdf|max:1024', // (1mb max, and only pngs, jpegs, and pdfs.)
         'directory' => null,   // Example: 'tmp'                      Default  'livewire-tmp'
         'middleware' => null,  // Example: 'throttle:5,1'             Default: 'throttle:60,1'
+        'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs.
+            'jpg', 'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
+            'mov', 'avi', 'wmv', 'mp3', 'm4a',
+            'jpeg', 'mpga', 'webp', 'wma',
+        ],
     ],
 
     /*
