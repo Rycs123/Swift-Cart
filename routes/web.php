@@ -35,3 +35,6 @@ Route::livewire('/admin/product', 'product.index')
 
 Route::livewire('/shop', 'shop.index')
     ->name('shop.index');
+
+Route::livewire('/cart', 'shop.cart')
+    ->name('shop.cart');
