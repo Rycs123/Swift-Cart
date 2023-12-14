@@ -38,3 +38,5 @@ Route::livewire('/shop', 'shop.index')
 
 Route::livewire('/cart', 'shop.cart')
     ->name('shop.cart');
+Route::livewire('/checkout', 'shop.checkout')
+    ->name('shop.checkout');
