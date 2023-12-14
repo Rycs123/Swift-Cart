@@ -81,6 +81,6 @@
         </main>
     </div>
     @livewireScripts
-
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
 </body>
 </html>
