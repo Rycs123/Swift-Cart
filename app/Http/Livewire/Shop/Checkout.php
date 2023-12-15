@@ -29,7 +29,7 @@ class Checkout extends Component
         return view('livewire.shop.checkout');
     }
 
-    public function checkoutHere()
+    public function checkout()
     {
         $this->validate(
             [

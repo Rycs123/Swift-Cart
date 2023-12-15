@@ -6,7 +6,7 @@
 
                 <div class="card-body">
                     @if ($formCheckout)
-                        <form wire:submit.prevent="checkoutHere">
+                        <form wire:submit.prevent="checkout">
                             <div class="form-group">
 
                                 <div class="form-row mb-2">
