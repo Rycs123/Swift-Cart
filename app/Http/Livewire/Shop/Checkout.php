@@ -58,7 +58,7 @@ class Checkout extends Component
         ];
         $transactionDetails = [
             'order_id' => uniqid(),
-            'groos_amount' => $amount,
+            'gross_amount' => $amount,
         ];
         $payload = [
             'transaction_details' => $transactionDetails,
