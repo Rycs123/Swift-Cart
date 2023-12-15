@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "livewire/livewire": "^1.2",
-        "midtrans/midtrans-php": "^2.3"
+        "midtrans/midtrans-php": "^2.3",
+        "santigarcor/laratrust": "6.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
